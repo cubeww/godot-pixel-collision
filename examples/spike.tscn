@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="SpriteFrames" path="res://examples/resources/spike_frames.tres" id="1"]
+[ext_resource type="PixelCollisionMask" path="res://examples/resources/spike_mask.tres" id="2"]
+
+[node name="Spike" type="MaskedAnimatedSprite2D" groups=["hazard"]]
+texture_filter = 1
+sprite_frames = ExtResource("1")
+centered = false
+mask = ExtResource("2")

@@ -1,0 +1,73 @@
+[gd_resource type="PixelCollisionMask" format=3]
+
+[ext_resource type="SpriteFrames" path="res://examples/resources/blood_frames.tres" id="1_25dwj"]
+
+[resource]
+_baked_data = {
+"animations": {
+&"default": [{
+"height": 4,
+"pixels": PackedByteArray(0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"width": 4
+}, {
+"height": 4,
+"pixels": PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"width": 4
+}, {
+"height": 4,
+"pixels": PackedByteArray(0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0),
+"width": 4
+}]
+},
+"dependencies": {
+"res://examples/assets/blood_sheet.svg": "dc022a0d720aabce73446698c9f8d972aa7c9377930411e7f280df3481b096ee",
+"res://examples/assets/blood_sheet.svg.import": "aa5b9f4cc0dfe6a0455b6fd94a9f5d912176a44c9b6a83b57105fbad306cff33",
+"res://examples/resources/blood_frames.tres": "98d70dc2ee9d7bf38f7421906f4cd5b79a63983c8ead2f3c765189e8f730d85e"
+},
+"layout": [{
+"animation": &"default",
+"textures": [{
+"atlas": {
+"class": "CompressedTexture2D",
+"path": "res://examples/assets/blood_sheet.svg",
+"size": Vector2i(12, 4)
+},
+"class": "AtlasTexture",
+"margin": Rect2(0, 0, 0, 0),
+"region": Rect2(0, 0, 4, 4),
+"size": Vector2i(4, 4)
+}, {
+"atlas": {
+"class": "CompressedTexture2D",
+"path": "res://examples/assets/blood_sheet.svg",
+"size": Vector2i(12, 4)
+},
+"class": "AtlasTexture",
+"margin": Rect2(0, 0, 0, 0),
+"region": Rect2(4, 0, 4, 4),
+"size": Vector2i(4, 4)
+}, {
+"atlas": {
+"class": "CompressedTexture2D",
+"path": "res://examples/assets/blood_sheet.svg",
+"size": Vector2i(12, 4)
+},
+"class": "AtlasTexture",
+"margin": Rect2(0, 0, 0, 0),
+"region": Rect2(8, 0, 4, 4),
+"size": Vector2i(4, 4)
+}]
+}],
+"settings": {
+"alpha": 0.0,
+"bounds": Rect2i(0, 0, 0, 0),
+"fixed_animation": &"default",
+"fixed_frame": 0,
+"frame_mode": 0,
+"shape": 0
+},
+"source": ExtResource("1_25dwj"),
+"source_dirty": false,
+"version": 1
+}
+resource_name = "Blood mask"

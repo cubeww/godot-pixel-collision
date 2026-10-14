@@ -1,0 +1,931 @@
+{
+  "description": "Same-host synthetic scalar blood workload before and after replacing transformed bitmap caches with on-demand inverse sampling. Two short rendered samples per mode and implementation. Not GameMaker compatibility or parity evidence.",
+  "method": {
+    "engine": "D:/Godot/godot.exe",
+    "headless": false,
+    "frames_per_run": 600,
+    "warmup_per_run": 100,
+    "repeats": 2,
+    "run_order": "settled 1, burst 1, settled 2, burst 2",
+    "cache_state": "Fresh Godot process per run; shared baked assets; no editor process",
+    "timing_caveat": "Short whole-application measurements include rendering and OS scheduling; results are noisy and are not isolated collision-core timings.",
+    "workload_scope": "The existing blood workload uses fixed sprite bases. It does not measure the update cost of continuously changing rotation or scale.",
+    "semantic_caveat": "The two implementations use different sampling and logical bounding-box rules. Equal query and hit counts in these fixtures do not establish identical results for arbitrary transforms or GameMaker VM equivalence."
+  },
+  "revisions": {
+    "before": {
+      "role": "7a1bbd3: cached transformed bitmaps with fixed translation phase",
+      "context": {
+        "godot_exe": "D:/Godot/godot.exe",
+        "cpu": {
+          "Name": "12th Gen Intel(R) Core(TM) i7-12700H"
+        },
+        "dll_sha256": "46D1D6CFDBAD4B331F56A217971ED37034163A057A4C8A07A3D76A36F91FB84F",
+        "warmup": 100,
+        "gpu": [
+          {
+            "Name": "MuMu Virtual Display Adapter",
+            "DriverVersion": "20.36.41.498"
+          },
+          {
+            "Name": "GameViewer Virtual Display Adapter",
+            "DriverVersion": "15.6.5.199"
+          },
+          {
+            "Name": "NVIDIA GeForce RTX 3060 Laptop GPU",
+            "DriverVersion": "32.0.16.1742"
+          }
+        ],
+        "captured_utc": "2026-10-14T11:15:01.9568089Z",
+        "dll_last_write_utc": "2026-10-14T10:52:07.4428064Z",
+        "frames": 600,
+        "repeats": 2
+      },
+      "runs": [
+        {
+          "collision_and_update_work": {
+            "max_ms": 1.958,
+            "mean_ms": 1.34337333333333,
+            "median_ms": 1.328,
+            "min_ms": 1.226,
+            "p95_ms": 1.487
+          },
+          "creation_ms": 8.586,
+          "fixture": "74 synthetic solid blocks / synthetic blood masks",
+          "fixture_path": "",
+          "frame": {
+            "max_ms": 2.839,
+            "mean_ms": 1.95863333333334,
+            "median_ms": 1.926,
+            "min_ms": 1.758,
+            "p95_ms": 2.193
+          },
+          "godot_version": "4.7.2-stable (official)",
+          "headless": false,
+          "hit_count": 480000,
+          "mean_fps": 510.5600844126,
+          "measured_frames": 600,
+          "mode": "settled",
+          "notes": "Synthetic masks; no claim of GameMaker event/trajectory parity. Headless runs measure no actual display performance. Work time includes GDScript motion and node synchronization in burst mode. Creation is measured separately from warmed steady-state timing.",
+          "particles": 800,
+          "query_count": 480000,
+          "query_mode": "scalar",
+          "registered_sprites": 874,
+          "render_path": "800 MaskedAnimatedSprite2D CanvasItems; no MultiMesh",
+          "rendering_method": "gl_compatibility",
+          "screenshot_path": "",
+          "shared_atlas_texture": true,
+          "shared_baked_mask": true,
+          "shared_sprite_frames": true,
+          "simulation_seconds_per_rendered_frame": 0.0,
+          "solid_count": 74,
+          "video_adapter": "NVIDIA GeForce RTX 3060 Laptop GPU",
+          "viewport_size": [
+            960.0,
+            640.0
+          ],
+          "vsync": 0,
+          "warmup_frames": 100
+        },
+        {
+          "collision_and_update_work": {
+            "max_ms": 13.53,
+            "mean_ms": 4.76520333333333,
+            "median_ms": 5.563,
+            "min_ms": 1.624,
+            "p95_ms": 6.512
+          },
+          "creation_ms": 8.087,
+          "fixture": "74 synthetic solid blocks / synthetic blood masks",
+          "fixture_path": "",
+          "frame": {
+            "max_ms": 14.65,
+            "mean_ms": 5.737365,
+            "median_ms": 6.433,
+            "min_ms": 2.316,
+            "p95_ms": 7.717
+          },
+          "godot_version": "4.7.2-stable (official)",
+          "headless": false,
+          "hit_count": 593832,
+          "mean_fps": 174.296040081118,
+          "measured_frames": 600,
+          "mode": "burst",
+          "notes": "Synthetic masks; no claim of GameMaker event/trajectory parity. Headless runs measure no actual display performance. Work time includes GDScript motion and node synchronization in burst mode. Creation is measured separately from warmed steady-state timing.",
+          "particles": 800,
+          "query_count": 1073830,
+          "query_mode": "scalar",
+          "registered_sprites": 874,
+          "render_path": "800 MaskedAnimatedSprite2D CanvasItems; no MultiMesh",
+          "rendering_method": "gl_compatibility",
+          "screenshot_path": "",
+          "shared_atlas_texture": true,
+          "shared_baked_mask": true,
+          "shared_sprite_frames": true,
+          "simulation_seconds_per_rendered_frame": 0.02,
+          "solid_count": 74,
+          "video_adapter": "NVIDIA GeForce RTX 3060 Laptop GPU",
+          "viewport_size": [
+            960.0,
+            640.0
+          ],
+          "vsync": 0,
+          "warmup_frames": 100
+        },
+        {
+          "collision_and_update_work": {
+            "max_ms": 1.717,
+            "mean_ms": 1.36989,
+            "median_ms": 1.351,
+            "min_ms": 1.214,
+            "p95_ms": 1.556
+          },
+          "creation_ms": 8.549,
+          "fixture": "74 synthetic solid blocks / synthetic blood masks",
+          "fixture_path": "",
+          "frame": {
+            "max_ms": 2.932,
+            "mean_ms": 1.989945,
+            "median_ms": 1.95,
+            "min_ms": 1.728,
+            "p95_ms": 2.299
+          },
+          "godot_version": "4.7.2-stable (official)",
+          "headless": false,
+          "hit_count": 480000,
+          "mean_fps": 502.526451736103,
+          "measured_frames": 600,
+          "mode": "settled",
+          "notes": "Synthetic masks; no claim of GameMaker event/trajectory parity. Headless runs measure no actual display performance. Work time includes GDScript motion and node synchronization in burst mode. Creation is measured separately from warmed steady-state timing.",
+          "particles": 800,
+          "query_count": 480000,
+          "query_mode": "scalar",
+          "registered_sprites": 874,
+          "render_path": "800 MaskedAnimatedSprite2D CanvasItems; no MultiMesh",
+          "rendering_method": "gl_compatibility",
+          "screenshot_path": "",
+          "shared_atlas_texture": true,
+          "shared_baked_mask": true,
+          "shared_sprite_frames": true,
+          "simulation_seconds_per_rendered_frame": 0.0,
+          "solid_count": 74,
+          "video_adapter": "NVIDIA GeForce RTX 3060 Laptop GPU",
+          "viewport_size": [
+            960.0,
+            640.0
+          ],
+          "vsync": 0,
+          "warmup_frames": 100
+        },
+        {
+          "collision_and_update_work": {
+            "max_ms": 14.071,
+            "mean_ms": 4.79488333333334,
+            "median_ms": 5.532,
+            "min_ms": 1.667,
+            "p95_ms": 6.48
+          },
+          "creation_ms": 8.126,
+          "fixture": "74 synthetic solid blocks / synthetic blood masks",
+          "fixture_path": "",
+          "frame": {
+            "max_ms": 14.844,
+            "mean_ms": 5.63271333333333,
+            "median_ms": 6.327,
+            "min_ms": 2.286,
+            "p95_ms": 7.584
+          },
+          "godot_version": "4.7.2-stable (official)",
+          "headless": false,
+          "hit_count": 593832,
+          "mean_fps": 177.534332180938,
+          "measured_frames": 600,
+          "mode": "burst",
+          "notes": "Synthetic masks; no claim of GameMaker event/trajectory parity. Headless runs measure no actual display performance. Work time includes GDScript motion and node synchronization in burst mode. Creation is measured separately from warmed steady-state timing.",
+          "particles": 800,
+          "query_count": 1073830,
+          "query_mode": "scalar",
+          "registered_sprites": 874,
+          "render_path": "800 MaskedAnimatedSprite2D CanvasItems; no MultiMesh",
+          "rendering_method": "gl_compatibility",
+          "screenshot_path": "",
+          "shared_atlas_texture": true,
+          "shared_baked_mask": true,
+          "shared_sprite_frames": true,
+          "simulation_seconds_per_rendered_frame": 0.02,
+          "solid_count": 74,
+          "video_adapter": "NVIDIA GeForce RTX 3060 Laptop GPU",
+          "viewport_size": [
+            960.0,
+            640.0
+          ],
+          "vsync": 0,
+          "warmup_frames": 100
+        }
+      ]
+    },
+    "after": {
+      "role": "Intermediate on-demand implementation before bounds-update and inverse-reuse optimizations",
+      "context": {
+        "dll_sha256": "1A926AE8423CDE2F616F333F7195E2B3D84876425B915381EF4A572D960FC04A",
+        "frames": 600,
+        "cpu": {
+          "Name": "12th Gen Intel(R) Core(TM) i7-12700H"
+        },
+        "captured_utc": "2026-10-14T11:22:54.0781547Z",
+        "dll_last_write_utc": "2026-10-14T11:21:23.9255103Z",
+        "warmup": 100,
+        "gpu": [
+          {
+            "Name": "MuMu Virtual Display Adapter",
+            "DriverVersion": "20.36.41.498"
+          },
+          {
+            "Name": "GameViewer Virtual Display Adapter",
+            "DriverVersion": "15.6.5.199"
+          },
+          {
+            "Name": "NVIDIA GeForce RTX 3060 Laptop GPU",
+            "DriverVersion": "32.0.16.1742"
+          }
+        ],
+        "repeats": 2,
+        "godot_exe": "D:/Godot/godot.exe"
+      },
+      "runs": [
+        {
+          "collision_and_update_work": {
+            "max_ms": 1.858,
+            "mean_ms": 1.46103,
+            "median_ms": 1.452,
+            "min_ms": 1.34,
+            "p95_ms": 1.638
+          },
+          "creation_ms": 8.103,
+          "fixture": "74 synthetic solid blocks / synthetic blood masks",
+          "fixture_path": "",
+          "frame": {
+            "max_ms": 3.006,
+            "mean_ms": 2.08627,
+            "median_ms": 2.054,
+            "min_ms": 1.854,
+            "p95_ms": 2.353
+          },
+          "godot_version": "4.7.2-stable (official)",
+          "headless": false,
+          "hit_count": 480000,
+          "mean_fps": 479.324344404128,
+          "measured_frames": 600,
+          "mode": "settled",
+          "notes": "Synthetic masks; no claim of GameMaker event/trajectory parity. Headless runs measure no actual display performance. Work time includes GDScript motion and node synchronization in burst mode. Creation is measured separately from warmed steady-state timing.",
+          "particles": 800,
+          "query_count": 480000,
+          "query_mode": "scalar",
+          "registered_sprites": 874,
+          "render_path": "800 MaskedAnimatedSprite2D CanvasItems; no MultiMesh",
+          "rendering_method": "gl_compatibility",
+          "screenshot_path": "",
+          "shared_atlas_texture": true,
+          "shared_baked_mask": true,
+          "shared_sprite_frames": true,
+          "simulation_seconds_per_rendered_frame": 0.0,
+          "solid_count": 74,
+          "video_adapter": "NVIDIA GeForce RTX 3060 Laptop GPU",
+          "viewport_size": [
+            960.0,
+            640.0
+          ],
+          "vsync": 0,
+          "warmup_frames": 100
+        },
+        {
+          "collision_and_update_work": {
+            "max_ms": 15.35,
+            "mean_ms": 5.62274333333334,
+            "median_ms": 6.67,
+            "min_ms": 1.799,
+            "p95_ms": 7.62
+          },
+          "creation_ms": 8.364,
+          "fixture": "74 synthetic solid blocks / synthetic blood masks",
+          "fixture_path": "",
+          "frame": {
+            "max_ms": 16.333,
+            "mean_ms": 6.53970666666668,
+            "median_ms": 7.527,
+            "min_ms": 2.428,
+            "p95_ms": 8.785
+          },
+          "godot_version": "4.7.2-stable (official)",
+          "headless": false,
+          "hit_count": 593832,
+          "mean_fps": 152.912057217653,
+          "measured_frames": 600,
+          "mode": "burst",
+          "notes": "Synthetic masks; no claim of GameMaker event/trajectory parity. Headless runs measure no actual display performance. Work time includes GDScript motion and node synchronization in burst mode. Creation is measured separately from warmed steady-state timing.",
+          "particles": 800,
+          "query_count": 1073830,
+          "query_mode": "scalar",
+          "registered_sprites": 874,
+          "render_path": "800 MaskedAnimatedSprite2D CanvasItems; no MultiMesh",
+          "rendering_method": "gl_compatibility",
+          "screenshot_path": "",
+          "shared_atlas_texture": true,
+          "shared_baked_mask": true,
+          "shared_sprite_frames": true,
+          "simulation_seconds_per_rendered_frame": 0.02,
+          "solid_count": 74,
+          "video_adapter": "NVIDIA GeForce RTX 3060 Laptop GPU",
+          "viewport_size": [
+            960.0,
+            640.0
+          ],
+          "vsync": 0,
+          "warmup_frames": 100
+        },
+        {
+          "collision_and_update_work": {
+            "max_ms": 1.809,
+            "mean_ms": 1.40638166666666,
+            "median_ms": 1.384,
+            "min_ms": 1.314,
+            "p95_ms": 1.564
+          },
+          "creation_ms": 8.2,
+          "fixture": "74 synthetic solid blocks / synthetic blood masks",
+          "fixture_path": "",
+          "frame": {
+            "max_ms": 2.657,
+            "mean_ms": 2.03285333333333,
+            "median_ms": 2.001,
+            "min_ms": 1.844,
+            "p95_ms": 2.249
+          },
+          "godot_version": "4.7.2-stable (official)",
+          "headless": false,
+          "hit_count": 480000,
+          "mean_fps": 491.919403924861,
+          "measured_frames": 600,
+          "mode": "settled",
+          "notes": "Synthetic masks; no claim of GameMaker event/trajectory parity. Headless runs measure no actual display performance. Work time includes GDScript motion and node synchronization in burst mode. Creation is measured separately from warmed steady-state timing.",
+          "particles": 800,
+          "query_count": 480000,
+          "query_mode": "scalar",
+          "registered_sprites": 874,
+          "render_path": "800 MaskedAnimatedSprite2D CanvasItems; no MultiMesh",
+          "rendering_method": "gl_compatibility",
+          "screenshot_path": "",
+          "shared_atlas_texture": true,
+          "shared_baked_mask": true,
+          "shared_sprite_frames": true,
+          "simulation_seconds_per_rendered_frame": 0.0,
+          "solid_count": 74,
+          "video_adapter": "NVIDIA GeForce RTX 3060 Laptop GPU",
+          "viewport_size": [
+            960.0,
+            640.0
+          ],
+          "vsync": 0,
+          "warmup_frames": 100
+        },
+        {
+          "collision_and_update_work": {
+            "max_ms": 15.534,
+            "mean_ms": 5.76649833333334,
+            "median_ms": 6.813,
+            "min_ms": 1.837,
+            "p95_ms": 7.99
+          },
+          "creation_ms": 8.553,
+          "fixture": "74 synthetic solid blocks / synthetic blood masks",
+          "fixture_path": "",
+          "frame": {
+            "max_ms": 16.585,
+            "mean_ms": 6.837925,
+            "median_ms": 7.663,
+            "min_ms": 2.521,
+            "p95_ms": 9.555
+          },
+          "godot_version": "4.7.2-stable (official)",
+          "headless": false,
+          "hit_count": 593832,
+          "mean_fps": 146.243195121327,
+          "measured_frames": 600,
+          "mode": "burst",
+          "notes": "Synthetic masks; no claim of GameMaker event/trajectory parity. Headless runs measure no actual display performance. Work time includes GDScript motion and node synchronization in burst mode. Creation is measured separately from warmed steady-state timing.",
+          "particles": 800,
+          "query_count": 1073830,
+          "query_mode": "scalar",
+          "registered_sprites": 874,
+          "render_path": "800 MaskedAnimatedSprite2D CanvasItems; no MultiMesh",
+          "rendering_method": "gl_compatibility",
+          "screenshot_path": "",
+          "shared_atlas_texture": true,
+          "shared_baked_mask": true,
+          "shared_sprite_frames": true,
+          "simulation_seconds_per_rendered_frame": 0.02,
+          "solid_count": 74,
+          "video_adapter": "NVIDIA GeForce RTX 3060 Laptop GPU",
+          "viewport_size": [
+            960.0,
+            640.0
+          ],
+          "vsync": 0,
+          "warmup_frames": 100
+        }
+      ]
+    },
+    "after-optimized": {
+      "role": "Intermediate on-demand implementation after bounds-update and inverse-reuse optimizations",
+      "context": {
+        "dll_sha256": "7B08ED174EF8F8AA512D428C5B3439FCB46BA871CD5044D61390EBCF2ED938A6",
+        "dll_last_write_utc": "2026-10-14T11:26:58.4864144Z",
+        "frames": 600,
+        "warmup": 100,
+        "cpu": {
+          "Name": "12th Gen Intel(R) Core(TM) i7-12700H"
+        },
+        "captured_utc": "2026-10-14T11:27:50.9713074Z",
+        "repeats": 2,
+        "godot_exe": "D:/Godot/godot.exe",
+        "gpu": [
+          {
+            "Name": "MuMu Virtual Display Adapter",
+            "DriverVersion": "20.36.41.498"
+          },
+          {
+            "Name": "GameViewer Virtual Display Adapter",
+            "DriverVersion": "15.6.5.199"
+          },
+          {
+            "Name": "NVIDIA GeForce RTX 3060 Laptop GPU",
+            "DriverVersion": "32.0.16.1742"
+          }
+        ]
+      },
+      "runs": [
+        {
+          "collision_and_update_work": {
+            "max_ms": 1.728,
+            "mean_ms": 1.40785,
+            "median_ms": 1.394,
+            "min_ms": 1.29,
+            "p95_ms": 1.563
+          },
+          "creation_ms": 7.929,
+          "fixture": "74 synthetic solid blocks / synthetic blood masks",
+          "fixture_path": "",
+          "frame": {
+            "max_ms": 2.697,
+            "mean_ms": 2.03300333333333,
+            "median_ms": 2.005,
+            "min_ms": 1.835,
+            "p95_ms": 2.281
+          },
+          "godot_version": "4.7.2-stable (official)",
+          "headless": false,
+          "hit_count": 480000,
+          "mean_fps": 491.883108898001,
+          "measured_frames": 600,
+          "mode": "settled",
+          "notes": "Synthetic masks; no claim of GameMaker event/trajectory parity. Headless runs measure no actual display performance. Work time includes GDScript motion and node synchronization in burst mode. Creation is measured separately from warmed steady-state timing.",
+          "particles": 800,
+          "query_count": 480000,
+          "query_mode": "scalar",
+          "registered_sprites": 874,
+          "render_path": "800 MaskedAnimatedSprite2D CanvasItems; no MultiMesh",
+          "rendering_method": "gl_compatibility",
+          "screenshot_path": "",
+          "shared_atlas_texture": true,
+          "shared_baked_mask": true,
+          "shared_sprite_frames": true,
+          "simulation_seconds_per_rendered_frame": 0.0,
+          "solid_count": 74,
+          "video_adapter": "NVIDIA GeForce RTX 3060 Laptop GPU",
+          "viewport_size": [
+            960.0,
+            640.0
+          ],
+          "vsync": 0,
+          "warmup_frames": 100
+        },
+        {
+          "collision_and_update_work": {
+            "max_ms": 16.444,
+            "mean_ms": 5.67345166666667,
+            "median_ms": 6.706,
+            "min_ms": 1.769,
+            "p95_ms": 7.762
+          },
+          "creation_ms": 8.686,
+          "fixture": "74 synthetic solid blocks / synthetic blood masks",
+          "fixture_path": "",
+          "frame": {
+            "max_ms": 17.285,
+            "mean_ms": 6.63934,
+            "median_ms": 7.595,
+            "min_ms": 2.461,
+            "p95_ms": 8.802
+          },
+          "godot_version": "4.7.2-stable (official)",
+          "headless": false,
+          "hit_count": 593832,
+          "mean_fps": 150.617380643257,
+          "measured_frames": 600,
+          "mode": "burst",
+          "notes": "Synthetic masks; no claim of GameMaker event/trajectory parity. Headless runs measure no actual display performance. Work time includes GDScript motion and node synchronization in burst mode. Creation is measured separately from warmed steady-state timing.",
+          "particles": 800,
+          "query_count": 1073830,
+          "query_mode": "scalar",
+          "registered_sprites": 874,
+          "render_path": "800 MaskedAnimatedSprite2D CanvasItems; no MultiMesh",
+          "rendering_method": "gl_compatibility",
+          "screenshot_path": "",
+          "shared_atlas_texture": true,
+          "shared_baked_mask": true,
+          "shared_sprite_frames": true,
+          "simulation_seconds_per_rendered_frame": 0.02,
+          "solid_count": 74,
+          "video_adapter": "NVIDIA GeForce RTX 3060 Laptop GPU",
+          "viewport_size": [
+            960.0,
+            640.0
+          ],
+          "vsync": 0,
+          "warmup_frames": 100
+        },
+        {
+          "collision_and_update_work": {
+            "max_ms": 1.785,
+            "mean_ms": 1.41089666666667,
+            "median_ms": 1.392,
+            "min_ms": 1.289,
+            "p95_ms": 1.569
+          },
+          "creation_ms": 8.331,
+          "fixture": "74 synthetic solid blocks / synthetic blood masks",
+          "fixture_path": "",
+          "frame": {
+            "max_ms": 2.764,
+            "mean_ms": 2.01612166666667,
+            "median_ms": 1.983,
+            "min_ms": 1.803,
+            "p95_ms": 2.268
+          },
+          "godot_version": "4.7.2-stable (official)",
+          "headless": false,
+          "hit_count": 480000,
+          "mean_fps": 496.001812059953,
+          "measured_frames": 600,
+          "mode": "settled",
+          "notes": "Synthetic masks; no claim of GameMaker event/trajectory parity. Headless runs measure no actual display performance. Work time includes GDScript motion and node synchronization in burst mode. Creation is measured separately from warmed steady-state timing.",
+          "particles": 800,
+          "query_count": 480000,
+          "query_mode": "scalar",
+          "registered_sprites": 874,
+          "render_path": "800 MaskedAnimatedSprite2D CanvasItems; no MultiMesh",
+          "rendering_method": "gl_compatibility",
+          "screenshot_path": "",
+          "shared_atlas_texture": true,
+          "shared_baked_mask": true,
+          "shared_sprite_frames": true,
+          "simulation_seconds_per_rendered_frame": 0.0,
+          "solid_count": 74,
+          "video_adapter": "NVIDIA GeForce RTX 3060 Laptop GPU",
+          "viewport_size": [
+            960.0,
+            640.0
+          ],
+          "vsync": 0,
+          "warmup_frames": 100
+        },
+        {
+          "collision_and_update_work": {
+            "max_ms": 16.216,
+            "mean_ms": 5.67673166666667,
+            "median_ms": 6.653,
+            "min_ms": 1.701,
+            "p95_ms": 7.923
+          },
+          "creation_ms": 8.317,
+          "fixture": "74 synthetic solid blocks / synthetic blood masks",
+          "fixture_path": "",
+          "frame": {
+            "max_ms": 17.27,
+            "mean_ms": 6.673985,
+            "median_ms": 7.643,
+            "min_ms": 2.329,
+            "p95_ms": 9.177
+          },
+          "godot_version": "4.7.2-stable (official)",
+          "headless": false,
+          "hit_count": 593832,
+          "mean_fps": 149.83551806005,
+          "measured_frames": 600,
+          "mode": "burst",
+          "notes": "Synthetic masks; no claim of GameMaker event/trajectory parity. Headless runs measure no actual display performance. Work time includes GDScript motion and node synchronization in burst mode. Creation is measured separately from warmed steady-state timing.",
+          "particles": 800,
+          "query_count": 1073830,
+          "query_mode": "scalar",
+          "registered_sprites": 874,
+          "render_path": "800 MaskedAnimatedSprite2D CanvasItems; no MultiMesh",
+          "rendering_method": "gl_compatibility",
+          "screenshot_path": "",
+          "shared_atlas_texture": true,
+          "shared_baked_mask": true,
+          "shared_sprite_frames": true,
+          "simulation_seconds_per_rendered_frame": 0.02,
+          "solid_count": 74,
+          "video_adapter": "NVIDIA GeForce RTX 3060 Laptop GPU",
+          "viewport_size": [
+            960.0,
+            640.0
+          ],
+          "vsync": 0,
+          "warmup_frames": 100
+        }
+      ]
+    },
+    "after-query-bounds": {
+      "role": "Final on-demand implementation with identity-query bounds clipped to source occupancy and logical bounds",
+      "context": {
+        "captured_utc": "2026-10-14T11:31:16.3376022Z",
+        "dll_last_write_utc": "2026-10-14T11:30:33.3488814Z",
+        "gpu": [
+          {
+            "Name": "MuMu Virtual Display Adapter",
+            "DriverVersion": "20.36.41.498"
+          },
+          {
+            "Name": "GameViewer Virtual Display Adapter",
+            "DriverVersion": "15.6.5.199"
+          },
+          {
+            "Name": "NVIDIA GeForce RTX 3060 Laptop GPU",
+            "DriverVersion": "32.0.16.1742"
+          }
+        ],
+        "frames": 600,
+        "warmup": 100,
+        "dll_sha256": "61254427954D3128EE180BA55C172814AD413DE75E8FDD1F8D1019A58DF3BB55",
+        "cpu": {
+          "Name": "12th Gen Intel(R) Core(TM) i7-12700H"
+        },
+        "repeats": 2,
+        "godot_exe": "D:/Godot/godot.exe"
+      },
+      "runs": [
+        {
+          "collision_and_update_work": {
+            "max_ms": 1.988,
+            "mean_ms": 1.46039833333333,
+            "median_ms": 1.442,
+            "min_ms": 1.324,
+            "p95_ms": 1.637
+          },
+          "creation_ms": 8.658,
+          "fixture": "74 synthetic solid blocks / synthetic blood masks",
+          "fixture_path": "",
+          "frame": {
+            "max_ms": 2.679,
+            "mean_ms": 2.09648333333333,
+            "median_ms": 2.073,
+            "min_ms": 1.879,
+            "p95_ms": 2.335
+          },
+          "godot_version": "4.7.2-stable (official)",
+          "headless": false,
+          "hit_count": 480000,
+          "mean_fps": 476.98924389255,
+          "measured_frames": 600,
+          "mode": "settled",
+          "notes": "Synthetic masks; no claim of GameMaker event/trajectory parity. Headless runs measure no actual display performance. Work time includes GDScript motion and node synchronization in burst mode. Creation is measured separately from warmed steady-state timing.",
+          "particles": 800,
+          "query_count": 480000,
+          "query_mode": "scalar",
+          "registered_sprites": 874,
+          "render_path": "800 MaskedAnimatedSprite2D CanvasItems; no MultiMesh",
+          "rendering_method": "gl_compatibility",
+          "screenshot_path": "",
+          "shared_atlas_texture": true,
+          "shared_baked_mask": true,
+          "shared_sprite_frames": true,
+          "simulation_seconds_per_rendered_frame": 0.0,
+          "solid_count": 74,
+          "video_adapter": "NVIDIA GeForce RTX 3060 Laptop GPU",
+          "viewport_size": [
+            960.0,
+            640.0
+          ],
+          "vsync": 0,
+          "warmup_frames": 100
+        },
+        {
+          "collision_and_update_work": {
+            "max_ms": 13.742,
+            "mean_ms": 4.91634333333333,
+            "median_ms": 5.742,
+            "min_ms": 1.68,
+            "p95_ms": 6.694
+          },
+          "creation_ms": 8.488,
+          "fixture": "74 synthetic solid blocks / synthetic blood masks",
+          "fixture_path": "",
+          "frame": {
+            "max_ms": 14.907,
+            "mean_ms": 5.88711,
+            "median_ms": 6.595,
+            "min_ms": 2.306,
+            "p95_ms": 7.98
+          },
+          "godot_version": "4.7.2-stable (official)",
+          "headless": false,
+          "hit_count": 593832,
+          "mean_fps": 169.862632089429,
+          "measured_frames": 600,
+          "mode": "burst",
+          "notes": "Synthetic masks; no claim of GameMaker event/trajectory parity. Headless runs measure no actual display performance. Work time includes GDScript motion and node synchronization in burst mode. Creation is measured separately from warmed steady-state timing.",
+          "particles": 800,
+          "query_count": 1073830,
+          "query_mode": "scalar",
+          "registered_sprites": 874,
+          "render_path": "800 MaskedAnimatedSprite2D CanvasItems; no MultiMesh",
+          "rendering_method": "gl_compatibility",
+          "screenshot_path": "",
+          "shared_atlas_texture": true,
+          "shared_baked_mask": true,
+          "shared_sprite_frames": true,
+          "simulation_seconds_per_rendered_frame": 0.02,
+          "solid_count": 74,
+          "video_adapter": "NVIDIA GeForce RTX 3060 Laptop GPU",
+          "viewport_size": [
+            960.0,
+            640.0
+          ],
+          "vsync": 0,
+          "warmup_frames": 100
+        },
+        {
+          "collision_and_update_work": {
+            "max_ms": 2.017,
+            "mean_ms": 1.45393666666667,
+            "median_ms": 1.437,
+            "min_ms": 1.303,
+            "p95_ms": 1.632
+          },
+          "creation_ms": 8.896,
+          "fixture": "74 synthetic solid blocks / synthetic blood masks",
+          "fixture_path": "",
+          "frame": {
+            "max_ms": 3.462,
+            "mean_ms": 2.084905,
+            "median_ms": 2.057,
+            "min_ms": 1.843,
+            "p95_ms": 2.34
+          },
+          "godot_version": "4.7.2-stable (official)",
+          "headless": false,
+          "hit_count": 480000,
+          "mean_fps": 479.638160971364,
+          "measured_frames": 600,
+          "mode": "settled",
+          "notes": "Synthetic masks; no claim of GameMaker event/trajectory parity. Headless runs measure no actual display performance. Work time includes GDScript motion and node synchronization in burst mode. Creation is measured separately from warmed steady-state timing.",
+          "particles": 800,
+          "query_count": 480000,
+          "query_mode": "scalar",
+          "registered_sprites": 874,
+          "render_path": "800 MaskedAnimatedSprite2D CanvasItems; no MultiMesh",
+          "rendering_method": "gl_compatibility",
+          "screenshot_path": "",
+          "shared_atlas_texture": true,
+          "shared_baked_mask": true,
+          "shared_sprite_frames": true,
+          "simulation_seconds_per_rendered_frame": 0.0,
+          "solid_count": 74,
+          "video_adapter": "NVIDIA GeForce RTX 3060 Laptop GPU",
+          "viewport_size": [
+            960.0,
+            640.0
+          ],
+          "vsync": 0,
+          "warmup_frames": 100
+        },
+        {
+          "collision_and_update_work": {
+            "max_ms": 14.228,
+            "mean_ms": 4.89796000000001,
+            "median_ms": 5.744,
+            "min_ms": 1.656,
+            "p95_ms": 6.682
+          },
+          "creation_ms": 8.523,
+          "fixture": "74 synthetic solid blocks / synthetic blood masks",
+          "fixture_path": "",
+          "frame": {
+            "max_ms": 15.295,
+            "mean_ms": 5.739005,
+            "median_ms": 6.49,
+            "min_ms": 2.238,
+            "p95_ms": 7.794
+          },
+          "godot_version": "4.7.2-stable (official)",
+          "headless": false,
+          "hit_count": 593832,
+          "mean_fps": 174.246232578644,
+          "measured_frames": 600,
+          "mode": "burst",
+          "notes": "Synthetic masks; no claim of GameMaker event/trajectory parity. Headless runs measure no actual display performance. Work time includes GDScript motion and node synchronization in burst mode. Creation is measured separately from warmed steady-state timing.",
+          "particles": 800,
+          "query_count": 1073830,
+          "query_mode": "scalar",
+          "registered_sprites": 874,
+          "render_path": "800 MaskedAnimatedSprite2D CanvasItems; no MultiMesh",
+          "rendering_method": "gl_compatibility",
+          "screenshot_path": "",
+          "shared_atlas_texture": true,
+          "shared_baked_mask": true,
+          "shared_sprite_frames": true,
+          "simulation_seconds_per_rendered_frame": 0.02,
+          "solid_count": 74,
+          "video_adapter": "NVIDIA GeForce RTX 3060 Laptop GPU",
+          "viewport_size": [
+            960.0,
+            640.0
+          ],
+          "vsync": 0,
+          "warmup_frames": 100
+        }
+      ]
+    }
+  },
+  "workloads": [
+    {
+      "mode": "settled",
+      "all_query_and_hit_counts_match": true,
+      "summary": {
+        "before": {
+          "mean_work_ms": 1.3566316666666651,
+          "mean_work_change_from_baseline_percent": 0.0,
+          "pooled_fps": 506.5114152899748,
+          "pooled_fps_change_from_baseline_percent": 0.0,
+          "mean_frame_ms": 1.97428916666667
+        },
+        "after": {
+          "mean_work_ms": 1.4337058333333301,
+          "mean_work_change_from_baseline_percent": 5.681289075025164,
+          "pooled_fps": 485.54020798924086,
+          "pooled_fps_change_from_baseline_percent": -4.140322738576008,
+          "mean_frame_ms": 2.059561666666665
+        },
+        "after-optimized": {
+          "mean_work_ms": 1.4093733333333351,
+          "mean_work_change_from_baseline_percent": 3.8876924343259622,
+          "pooled_fps": 493.93387460253757,
+          "pooled_fps_change_from_baseline_percent": -2.4831702322516636,
+          "mean_frame_ms": 2.0245625
+        },
+        "after-query-bounds": {
+          "mean_work_ms": 1.4571675,
+          "mean_work_change_from_baseline_percent": 7.410694870506607,
+          "pooled_fps": 478.31003498439355,
+          "pooled_fps_change_from_baseline_percent": -5.5677679622355924,
+          "mean_frame_ms": 2.090694166666665
+        }
+      }
+    },
+    {
+      "mode": "burst",
+      "all_query_and_hit_counts_match": true,
+      "summary": {
+        "before": {
+          "mean_work_ms": 4.780043333333335,
+          "mean_work_change_from_baseline_percent": 0.0,
+          "pooled_fps": 175.90028330206468,
+          "pooled_fps_change_from_baseline_percent": 0.0,
+          "mean_frame_ms": 5.685039166666664
+        },
+        "after": {
+          "mean_work_ms": 5.694620833333341,
+          "mean_work_change_from_baseline_percent": 19.133247048667034,
+          "pooled_fps": 149.5032939936178,
+          "pooled_fps_change_from_baseline_percent": -15.006791810060172,
+          "mean_frame_ms": 6.68881583333334
+        },
+        "after-optimized": {
+          "mean_work_ms": 5.67509166666667,
+          "mean_work_change_from_baseline_percent": 18.724690780348595,
+          "pooled_fps": 150.22543203895347,
+          "pooled_fps_change_from_baseline_percent": -14.596253502912827,
+          "mean_frame_ms": 6.6566624999999995
+        },
+        "after-query-bounds": {
+          "mean_work_ms": 4.90715166666667,
+          "mean_work_change_from_baseline_percent": 2.6591460467931816,
+          "pooled_fps": 172.0265110056111,
+          "pooled_fps_change_from_baseline_percent": -2.202254722808683,
+          "mean_frame_ms": 5.813057499999999
+        }
+      }
+    }
+  ]
+}

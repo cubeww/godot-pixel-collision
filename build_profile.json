@@ -1,0 +1,6 @@
+{
+  "enabled_classes": [
+    "AnimatedSprite2D", "Sprite2D", "Node2D", "CanvasItem", "SceneTree", "SpriteFrames",
+    "Resource", "Image", "Texture2D", "ImageTexture", "AtlasTexture", "Engine", "OS", "FileAccess"
+  ]
+}

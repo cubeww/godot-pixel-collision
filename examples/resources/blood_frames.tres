@@ -1,0 +1,35 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cmntwe2swlqsk"]
+
+[ext_resource type="Texture2D" uid="uid://bevwxekkuvrw" path="res://examples/assets/blood_sheet.svg" id="1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frame_0"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 4, 4)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frame_1"]
+atlas = ExtResource("1")
+region = Rect2(4, 0, 4, 4)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frame_2"]
+atlas = ExtResource("1")
+region = Rect2(8, 0, 4, 4)
+filter_clip = true
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frame_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frame_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frame_2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

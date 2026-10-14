@@ -1,0 +1,13 @@
+.godot/
+build/
+build-*/
+test-results/
+addons/pixel_collision/bin/*
+!addons/pixel_collision/bin/.gitkeep
+*.pdb
+*.ilk
+*.exp
+*.obj
+*.lib
+.DS_Store
+Thumbs.db

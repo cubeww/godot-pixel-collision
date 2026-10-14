@@ -1,0 +1,11 @@
+[configuration]
+entry_symbol = "pixel_collision_library_init"
+compatibility_minimum = "4.5"
+reloadable = false
+
+[libraries]
+windows.x86_64 = "res://addons/pixel_collision/bin/pixel_collision.windows.x86_64.dll"
+linux.x86_64 = "res://addons/pixel_collision/bin/pixel_collision.linux.x86_64.so"
+linux.arm64 = "res://addons/pixel_collision/bin/pixel_collision.linux.arm64.so"
+macos.x86_64 = "res://addons/pixel_collision/bin/pixel_collision.macos.x86_64.dylib"
+macos.arm64 = "res://addons/pixel_collision/bin/pixel_collision.macos.arm64.dylib"

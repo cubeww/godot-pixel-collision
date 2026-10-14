@@ -1,0 +1,56 @@
+[gd_resource type="PixelCollisionMask" format=4 uid="uid://b23pfduplkf4y"]
+
+[ext_resource type="SpriteFrames" path="res://examples/resources/player_frames.tres" id="1_c7h48"]
+
+[resource]
+shape_mode = 1
+frame_mode = 2
+manual_bounds = Rect2i(1, 0, 10, 20)
+fixed_animation = &"idle"
+_baked_data = {
+"animations": {
+&"idle": [{
+"height": 20,
+"pixels": PackedByteArray("AAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEAAAEBAQEBAQEBAQEA"),
+"width": 12
+}]
+},
+"dependencies": {
+"res://examples/assets/player_idle.svg": "8919a39c1e72e0b7d1187148f6bda3ffe1d0be68b167221cbdef874113fb73ff",
+"res://examples/assets/player_idle.svg.import": "d87b8e47a903f799514fdaeba3e7f84c8d93d5bb60111bf05610fdf9e90183e9",
+"res://examples/assets/player_run.svg": "12f38ed66f224dd5ada876814e33ff961c05c131c8f8a3e00fee9303fe61e509",
+"res://examples/assets/player_run.svg.import": "6f3dbd333f90b77c7f786367ef46048071afd3ae26397ce4d6546d9914cf043f",
+"res://examples/resources/player_frames.tres": "955dd8e47c6c76ceaa62c2b18fb19a86e5339ebf5ff8a03b03bfe2b43ef22f78"
+},
+"layout": [{
+"animation": &"idle",
+"textures": [{
+"class": "CompressedTexture2D",
+"path": "res://examples/assets/player_idle.svg",
+"size": Vector2i(12, 20)
+}]
+}, {
+"animation": &"run",
+"textures": [{
+"class": "CompressedTexture2D",
+"path": "res://examples/assets/player_idle.svg",
+"size": Vector2i(12, 20)
+}, {
+"class": "CompressedTexture2D",
+"path": "res://examples/assets/player_run.svg",
+"size": Vector2i(12, 20)
+}]
+}],
+"settings": {
+"alpha": 0.0,
+"bounds": Rect2i(1, 0, 10, 20),
+"fixed_animation": &"idle",
+"fixed_frame": 0,
+"frame_mode": 2,
+"shape": 1
+},
+"source": ExtResource("1_c7h48"),
+"source_dirty": false,
+"version": 1
+}
+resource_name = "Player mask"

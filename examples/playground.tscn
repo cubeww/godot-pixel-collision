@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://drva8uro332e5"]
+
+[ext_resource type="Script" uid="uid://dfgj8058r7wxp" path="res://examples/playground.gd" id="1"]
+[ext_resource type="PackedScene" path="res://examples/player.tscn" id="2"]
+
+[node name="PixelCollisionPlayground" type="Node2D" unique_id=2044276752]
+script = ExtResource("1")
+
+[node name="Player" parent="." unique_id=723517279 instance=ExtResource("2")]
+position = Vector2(92, 540)

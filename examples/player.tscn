@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="SpriteFrames" path="res://examples/resources/player_frames.tres" id="1"]
+[ext_resource type="PixelCollisionMask" path="res://examples/resources/player_mask.tres" id="2"]
+
+[node name="Player" type="MaskedAnimatedSprite2D" groups=["player"]]
+texture_filter = 1
+sprite_frames = ExtResource("1")
+animation = &"idle"
+mask = ExtResource("2")

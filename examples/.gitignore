@@ -1,0 +1,2 @@
+# Local smoke-check logs are not example assets.
+.checks/
